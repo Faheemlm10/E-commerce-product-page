@@ -4,11 +4,11 @@ import ThumbnailSelector from "./ThumbnailSelector";
 
 const ImageSlider = () => {
   return (
-    <div className="pl-[3rem]">
+    <div className="sm:pl-[3rem]">
       <Thumbnail />
       <ThumbnailSelector />
     </div>
   );
-};
+};  
 
 export default ImageSlider;

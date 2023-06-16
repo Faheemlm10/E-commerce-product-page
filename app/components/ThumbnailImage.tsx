@@ -30,7 +30,7 @@ const ThumbnailImage: React.FC<ThumbnailImageProps> = ({
   const selectedClassName = number === currentImageNumber ? " opacity-50" : "";
   return (
     <div
-      className={`w-[6.6rem] rounded-[1rem] overflow-hidden cursor-pointer  ${selectedStyles} `}
+      className={`2xl:w-[6.6rem] xl:-w-[6rem] lg:w-[5rem] md:w-[4rem] w-[5rem] rounded-[1rem] overflow-hidden cursor-pointer    ${selectedStyles} `}
       onClick={() => {
         setImageNumber(number);
       }}

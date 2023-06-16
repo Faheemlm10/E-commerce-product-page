@@ -13,14 +13,20 @@ const CartOrder: FC<CartOrderProps> = ({ orderNumber }: CartOrderProps) => {
   const setToZero = useStore((store) => store.setOrderNumberZero);
   const cartDisplay = useStore((store) => store.cartNumberDisplayed);
   const binFunction = useStore((store) => store.cartNumberFalseFunction);
+  const cartOpen = useStore((store) => store.cartOpen);
   const binTotalFunction = () => {
     cartDisplay;
     binFunction;
   };
   return (
     <>
-      {orderNumber === 0 ? (
-        <div className="absolute bg-white w-[18rem] mt-[3rem] shadow-custom top-[0.2rem] left-[-5rem] rounded-[1rem]">
+      {cartOpen && orderNumber == 0 ? (
+        <div
+          className="absolute bg-white sm:w-[18rem] mt-[3rem] shadow-custom   
+        sm:top-[0.2rem] sm:left-[-rem]  sm:right-[30%] rounded-[1rem] 
+        max-[640px]:top-[10%] max-[640px]:left-[-1300%] max-[640px]:w-[20rem]  z-50
+         max-[500px]:left-[-1200%] max-[500px]:w-[20rem]   max-[450px]:left-[-900%] max-[450px]:w-[21rem] "
+        >
           <div className="font-bold pt-[1rem] pl-[1rem] pb-[1.5rem] border-b-2 ">
             Cart
           </div>
@@ -29,7 +35,13 @@ const CartOrder: FC<CartOrderProps> = ({ orderNumber }: CartOrderProps) => {
           </div>
         </div>
       ) : (
-        <div className="absolute bg-white  mt-[3rem] shadow-custom top-[0.2rem] left-[-5rem] px-[1.5rem] rounded-[1rem] ">
+        ""
+      )}
+      {cartOpen && orderNumber > 0  ? (
+        <div
+          className="absolute bg-white sm:right-[30%]  sm:w-[19rem] mt-[3rem] shadow-custom sm:top-[0.2rem] left-[-rem] px-[1.5rem] rounded-[1rem] z-50
+      max-[640px]:top-[10%] max-[640px]:left-[-1300%] max-[640px]:w-[20rem] max-[500px]:left-[-1200%] max-[500px]:w-[20rem]   max-[450px]:left-[-1200%] max-[450px]:w-[21rem] max-[420px]:left-[-1100%] max-[420px]:w-[2rem]"
+        >
           <div className="font-bold  py-[1.5rem] border-b-2 ">Cart</div>
           <div className="flex flex-col items-center">
             <div className="flex mt-7 gap-[1rem] items-center mb-7  ">
@@ -64,6 +76,8 @@ const CartOrder: FC<CartOrderProps> = ({ orderNumber }: CartOrderProps) => {
             </div>
           </div>
         </div>
+      ) : (
+        ""
       )}
     </>
   );

@@ -10,39 +10,44 @@ const ShoppingFeature = () => {
   const orderNumber = useStore((store) => store.orderNumber);
   const increaseOrderNumber = useStore((store) => store.increaseOrderNumber);
   const decreaseOrderNumber = useStore((store) => store.decreaseOrderNumber);
+  const changeCart = useStore((store) => store.cartChange);
   const cartNumberDisplayFunction = useStore(
     (store) => store.cartNumberDisplayFunction
   );
+  const addToCartFunction = () => {
+    cartNumberDisplayFunction();
+    changeCart()
+  };
 
   return (
-    <div className="flex  mt-[3rem] justify-between  ">
-      <div className="flex     ">
+    <div className=" flex sm:flex-row flex-col  mt-[3rem] justify-between sm:pr-2    ">
+      <div className="flex max-sm:w-[100%] mb-[2rem] lg:h-[4rem] sm:h-[3rem] h-[4rem]   ">
         <div
-          className="flex justify-center items-center bg-lightGrayishBlue py-[0.8rem] px-[1.3rem] rounded-l-[0.6rem] cursor-pointer"
+          className="flex justify-center items-center  bg-lightGrayishBlue rounded-l-[0.6rem] lg:px-[1.5rem] lg:py-[1rem] md:px-[1.2rem] md:py-[1rem] sm:px-[1rem] sm:py-[1rem] px-[1rem] py-[1.1rem] w-[100%]  cursor-pointer"
           onClick={() => orderNumber > 0 && decreaseOrderNumber()}
         >
           <Image src={minus} height={10} width={10} alt="plus symbol" />
         </div>
-        <div className="flex justify-center items-center bg-lightGrayishBlue py-[1rem] px-[1rem] font-bold">
+        <div className="flex justify-center items-center bg-lightGrayishBlue lg:px-[1.5rem] lg:py-[1rem] md:px-[1.2rem] md:py-[1rem] sm:px-[1rem] sm:py-[1rem] w-[100%] px-[1rem] py-[1.1rem]  font-bold">
           {orderNumber}
         </div>
         <div
-          className="flex justify-center items-center bg-lightGrayishBlue py-[0.8rem] px-[1.3rem] rounded-r-[0.6rem] cursor-pointer"
+          className="flex justify-center items-center bg-lightGrayishBlue  rounded-r-[0.6rem]  lg:px-[1.5rem] lg:py-[1rem] md:px-[1.2rem] md:py-[1rem] sm:px-[1rem] sm:py-[1rem] cursor-pointer px-[1rem] py-[1.1rem] w-[100%]"
           onClick={() => increaseOrderNumber()}
         >
           <Image src={plus} height={10} width={10} alt="plus symbol" />
         </div>
       </div>
       <div
-        onClick={cartNumberDisplayFunction}
-        className="flex gap-[1rem]  justify-center items-center bg-orangeTitle  text-white w-[18rem]  rounded-[0.6rem] cursor-pointer"
+        onClick={addToCartFunction}
+        className="flex sm:gap-[1rem] gap-[1.5rem]  justify-center items-center bg-orangeTitle  text-white lg:w-[18rem] md:w-[14rem] sm:w-[10rem]  rounded-[0.6rem]  max-sm:px-[1rem] lg:h-[4rem] sm:h-[3rem] h-[4rem]  cursor-pointer"
       >
         <Image
           src={Cart}
-          className=" height={15} width={15} svg-icon "
+          className=" h-[1rem] w-[1rem] svg-icon "
           alt="cart symbol"
         />
-        <div className="text-[0.9rem] font-bold">Add to cart</div>
+        <div className="text-[1rem] font-bold">Add to cart</div>
       </div>
     </div>
   );

@@ -24,10 +24,11 @@ body {
   width: 100vw;
   max-width: 100vw;
   height: 100vh;
-  max-height: 100vh;
+  /* max-height: 100vh; */
   font-size: 16px;
   width: 100%;
   /* overflow-x: hidden; */
+  margin-bottom: 10rem;
 }
 
 .svg-icon {
@@ -37,3 +38,5 @@ body {
 .shadow-custom {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); /* Replace with your desired shadow color */
 }
+
+

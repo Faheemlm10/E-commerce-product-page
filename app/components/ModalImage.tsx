@@ -41,7 +41,7 @@ const ModalImage = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-75 cursor-pointer z-10 ">
+    <div className="fixed hidden  top-0 left-0 right-0 bottom-0 sm:flex items-center justify-center bg-black bg-opacity-75 cursor-pointer z-10 ">
       <div className="flex  flex-col ">
         <div className="self-end mr-[1.5rem] mb-[0.5rem]" onClick={closeModal}>
           {" "}
